@@ -1,4 +1,7 @@
+from enum import StrEnum
+
 import pytest
+from playwright.sync_api import expect
 
 from config_reader import ConfigReader
 from pages.main_page import MainPage
@@ -6,13 +9,18 @@ from pages.main_page import MainPage
 config = ConfigReader.get_instance()
 
 
+class SortFilter(StrEnum):
+    LOW_TO_HIGH = "Price: low to high"
+    HIGH_TO_LOW = "Price: high to low"
+
+
+@pytest.mark.parametrize("name", ["city", "habits"])
+@pytest.mark.parametrize("n", [10, 15])
 @pytest.mark.parametrize(
-    "name, n, filter_type",
+    "filter_type",
     [
-        ("city", 10, "Price: low to high"),
-        ("city", 15, "Price: high to low"),
-        ("habits", 10, "Price: low to high"),
-        ("habits", 15, "Price: high to low"),
+        SortFilter.LOW_TO_HIGH,
+        SortFilter.HIGH_TO_LOW,
     ],
 )
 def test_article_prices_sorting(page, name, n, filter_type):
@@ -22,11 +30,13 @@ def test_article_prices_sorting(page, name, n, filter_type):
 
     search_results_page = main_page.search_article(name)
 
+    expect(search_results_page.filter_select).to_be_visible()
+
     search_results_page.apply_filter(filter_type)
 
     prices = search_results_page.get_first_prices(n)
 
-    if filter_type == "Price: low to high":
+    if filter_type == SortFilter.LOW_TO_HIGH:
         expected_prices = sorted(prices)
     else:
         expected_prices = sorted(prices, reverse=True)

@@ -7,7 +7,7 @@ class SearchResultsPage:
 
     def apply_filter(self, filter_type):
         self.filter_select.select_option(label=filter_type)
-        self.page.wait_for_load_state("networkidle")
+        self.article_prices.first.wait_for(state="visible")
 
     def get_first_prices(self, n):
         prices = []

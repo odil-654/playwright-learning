@@ -1,7 +1,6 @@
 from enum import StrEnum
 
 import pytest
-from playwright.sync_api import expect
 
 from config_reader import ConfigReader
 from pages.main_page import MainPage
@@ -30,16 +29,21 @@ def test_article_prices_sorting(page, name, n, filter_type):
 
     search_results_page = main_page.search_article(name)
 
-    expect(search_results_page.filter_select).to_be_visible()
+    search_results_page.wait_until_loaded()
 
     search_results_page.apply_filter(filter_type)
 
+    search_results_page.wait_until_prices_sorted(
+        n,
+        reverse=filter_type == SortFilter.HIGH_TO_LOW,
+    )
+
     prices = search_results_page.get_first_prices(n)
 
-    if filter_type == SortFilter.LOW_TO_HIGH:
-        expected_prices = sorted(prices)
-    else:
-        expected_prices = sorted(prices, reverse=True)
+    expected_prices = sorted(
+        prices,
+        reverse=filter_type == SortFilter.HIGH_TO_LOW,
+    )
 
     assert prices == expected_prices, (
         f"Expected prices: {expected_prices}, "

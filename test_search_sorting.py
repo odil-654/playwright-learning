@@ -33,11 +33,6 @@ def test_article_prices_sorting(page, name, n, filter_type):
 
     search_results_page.apply_filter(filter_type)
 
-    search_results_page.wait_until_prices_sorted(
-        n,
-        reverse=filter_type == SortFilter.HIGH_TO_LOW,
-    )
-
     prices = search_results_page.get_first_prices(n)
 
     expected_prices = sorted(

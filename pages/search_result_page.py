@@ -7,6 +7,9 @@ class SearchResultsPage:
         self.loader = page.get_by_test_id("results-loader-svg")
 
     def wait_until_loaded(self):
+        self.loader.wait_for(state="visible")
+        self.loader.wait_for(state="hidden")
+
         self.filter_select.wait_for(state="visible")
         self.article_prices.first.wait_for(state="visible")
 

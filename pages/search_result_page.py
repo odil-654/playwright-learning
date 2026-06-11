@@ -10,8 +10,6 @@ class SearchResultsPage:
         self.loader.wait_for(state="visible")
         self.loader.wait_for(state="hidden")
 
-        self.filter_select.wait_for(state="visible")
-        self.article_prices.first.wait_for(state="visible")
 
     def apply_filter(self, filter_type):
         self.filter_select.select_option(label=str(filter_type))

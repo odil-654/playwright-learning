@@ -14,12 +14,19 @@ class SortFilter(StrEnum):
 
 
 @pytest.mark.parametrize(
-    "name, n, filter_type",
+    "name, n",
     [
-        ("city", 10, SortFilter.LOW_TO_HIGH),
-        ("city", 15, SortFilter.HIGH_TO_LOW),
-        ("habits", 10, SortFilter.LOW_TO_HIGH),
-        ("habits", 15, SortFilter.HIGH_TO_LOW),
+        ("city", 10),
+        ("city", 15),
+        ("habits", 10),
+        ("habits", 15),
+    ],
+)
+@pytest.mark.parametrize(
+    "filter_type",
+    [
+        SortFilter.LOW_TO_HIGH,
+        SortFilter.HIGH_TO_LOW,
     ],
 )
 def test_article_prices_sorting(page, name, n, filter_type):

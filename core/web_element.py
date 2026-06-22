@@ -7,7 +7,13 @@ class WebElement():
         self.locator.click()
 
     def right_click(self):
-        self.locator.right_click()
+        self.locator.click(button="right")
 
     def fill(self, text):
         self.locator.fill(text)
+
+    def get_inner_text(self):
+        return self.locator.inner_text()
+
+    def get_text_content(self):
+        return self.locator.text_content()

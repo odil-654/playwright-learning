@@ -7,13 +7,16 @@ class MultiWebElement:
         return self.locator.count()
 
     def nth(self, index):
-        return self.locator[index]
+        return WebElement(
+            self.locator.nth(index),
+            f"{self.description} -> element #{index}",
+        )
 
     def first(self):
-        return self.locator[0]
+        return self.locator.nth(0)
 
     def last(self):
-        return self.locator[self.locator.count()-1]
+        return self.locator.nth(self.count() - 1)
 
     def all(self):
         results = []

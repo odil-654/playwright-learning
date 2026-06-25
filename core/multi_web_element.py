@@ -13,10 +13,10 @@ class MultiWebElement:
         )
 
     def first(self):
-        return self.locator.nth(0)
+        return self.nth(0)
 
     def last(self):
-        return self.locator.nth(self.count() - 1)
+        return self.nth(self.count() - 1)
 
     def all(self):
         results = []

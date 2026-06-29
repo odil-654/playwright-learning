@@ -1,5 +1,7 @@
 from asyncio import wait_for
 
+from pyexpat.errors import messages
+
 
 class PageActions:
     def __init__(self, page):
@@ -18,11 +20,14 @@ class PageActions:
         self.page.close()
 
     def run_and_accept_alert(self, action):
+        messages = []
         def handle(dialog):
+            messages.append(dialog.message)
             dialog.accept()
 
         self.page.on("dialog", handle)
         action()
+        return messages[0]
 
     def run_and_dismiss_alert(self, action):
         def handle(dialog):

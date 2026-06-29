@@ -17,3 +17,9 @@ class WebElement():
 
     def get_text_content(self):
         return self.locator.text_content()
+
+    def press_right(self):
+        return self.locator.press("ArrowRight")
+
+    def press_left(self):
+        return self.locator.press("ArrowLeft")

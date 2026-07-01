@@ -23,3 +23,6 @@ class WebElement():
 
     def press_left(self):
         return self.locator.press("ArrowLeft")
+
+    def hover(self):
+        return self.locator.hover()

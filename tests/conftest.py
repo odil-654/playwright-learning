@@ -1,6 +1,7 @@
 import pytest
 from pages.basic_auth_page import BasicAuthPage
 from pages.context_page import ContextPage
+from pages.hovers_page import HoversPage
 from pages.javascript_alerts_page import JavascriptAlertsPage
 from pages.slider_page import SliderPage
 
@@ -20,3 +21,7 @@ def context_page(page):
 @pytest.fixture
 def slider_page(page):
     return SliderPage(page)
+
+@pytest.fixture
+def hover_page(page):
+    return HoversPage(page)

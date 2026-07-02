@@ -9,14 +9,22 @@ class HoversPage(PageActions):
             self.page.locator("img[alt='User Avatar']"),
             "Hovers -> Multi item",
         )
+        self.hover_text = WebElement(
+            self.page.locator("h5:visible"),
+            "Hovers -> text after hover",
+        )
 
     def get_all_items(self):
         return self.multi_item.all()
 
-    def check_all_items(self):
+    def hover_and_get_text(self):
         list_1 = self.get_all_items()
-        list_2 = ("name: user", x)
+        texts = []
         for x in range(0, len(list_1)):
-            assert list_1 == list_2
+            list_1[x].hover()
+            text = self.hover_text.get_inner_text()
+            texts.append(text)
+        return texts
+
 
 

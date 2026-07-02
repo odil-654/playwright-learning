@@ -1,3 +1,6 @@
+from core.web_element import WebElement
+
+
 class MultiWebElement:
     def __init__(self, locator, description):
         self.locator = locator

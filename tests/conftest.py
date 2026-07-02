@@ -23,5 +23,5 @@ def slider_page(page):
     return SliderPage(page)
 
 @pytest.fixture
-def hover_page(page):
+def hovers_page(page):
     return HoversPage(page)

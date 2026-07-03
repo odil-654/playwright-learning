@@ -25,3 +25,7 @@ def slider_page(page):
 @pytest.fixture
 def hovers_page(page):
     return HoversPage(page)
+
+@pytest.fixture
+def windows_page(page):
+    return WindowsPage(page)

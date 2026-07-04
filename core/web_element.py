@@ -26,3 +26,6 @@ class WebElement():
 
     def hover(self):
         return self.locator.hover()
+
+    def get_attribute(self, name):
+        return self.locator.get_attribute(name)

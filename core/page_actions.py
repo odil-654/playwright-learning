@@ -42,3 +42,6 @@ class PageActions:
 
         self.page.on("dialog", handle)
         action()
+
+    def scroll_down(self):
+        self.page.mouse.wheel(0, 300)

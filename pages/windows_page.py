@@ -9,7 +9,17 @@ class WindowsPage(PageActions):
             self.page.locator("a[href='/windows/new']"),
             "Windows page -> Click button"
         )
+        self.new_text = WebElement(
+            self.page.locator("h3"),
+            "Windows page -> New page -> text",
+        )
 
     def click_and_get_new_page(self):
-        with context.expect_page() as page_info:
-            page.click("text=Открыть в новой вкладке")
+        with self.page.context.expect_page() as page_info:
+            self.button_for_click.click()
+        new_page = page_info.value
+        return new_page
+
+    def click_and_get_text(self):
+        new_page = self.click_and_get_new_page()
+        return new_page.locator("h3").inner_text()

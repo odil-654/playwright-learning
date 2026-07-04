@@ -29,3 +29,6 @@ class WebElement():
 
     def get_attribute(self, name):
         return self.locator.get_attribute(name)
+
+    def set_input_files(self, path):
+        return self.locator.set_input_files(path)

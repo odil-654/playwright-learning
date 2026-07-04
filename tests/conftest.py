@@ -8,7 +8,7 @@ from pages.slider_page import SliderPage
 from pages.windows_page import WindowsPage
 from pages.frames_page import FramesPage
 from pages.scroll_page import ScrollPage
-
+from pages.upload_page import UploadPage
 
 
 @pytest.fixture
@@ -46,3 +46,7 @@ def dynamic_content_page(page):
 @pytest.fixture
 def scroll_page(page):
     return ScrollPage(page)
+
+@pytest.fixture
+def upload_page(page):
+    return UploadPage(page)

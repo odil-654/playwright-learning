@@ -1,6 +1,7 @@
 import pytest
 from pages.basic_auth_page import BasicAuthPage
 from pages.context_page import ContextPage
+from pages.download_page import DownloadPage
 from pages.dynamic_content_page import DynamicContentPage
 from pages.hovers_page import HoversPage
 from pages.javascript_alerts_page import JavascriptAlertsPage
@@ -50,3 +51,7 @@ def scroll_page(page):
 @pytest.fixture
 def upload_page(page):
     return UploadPage(page)
+
+@pytest.fixture
+def download_page(page):
+    return DownloadPage(page)

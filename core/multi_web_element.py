@@ -27,3 +27,6 @@ class MultiWebElement:
         for i in range(max_number):
             results.append(self.nth(i))
         return results
+
+    def __iter__(self):
+        return iter(self.all())

@@ -1,11 +1,8 @@
 def test_number_of_scrolls(scroll_page):
     scroll_page.goto("https://the-internet.herokuapp.com/infinite_scroll")
-    text_1 = len(scroll_page.number_of_scrolls())
     while True:
-        if text_1 >= 10:
+        items = scroll_page.number_of_scrolls()
+        if len(items) >= 10:
             break
-        else:
-            scroll_page.scroll_down()
-            text_1 = len(scroll_page.number_of_scrolls())
-
-    assert text_1 >= 10
+        scroll_page.scroll_into_view(items[-1])
+    assert len(items) >= 10

@@ -10,6 +10,7 @@ from pages.windows_page import WindowsPage
 from pages.frames_page import FramesPage
 from pages.scroll_page import ScrollPage
 from pages.upload_page import UploadPage
+from core.logger import setup_logging
 
 
 @pytest.fixture
@@ -55,3 +56,7 @@ def upload_page(page):
 @pytest.fixture
 def download_page(page):
     return DownloadPage(page)
+
+@pytest.fixture(scope="session", autouse=True)
+def configure_logging():
+    setup_logging()

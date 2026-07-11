@@ -1,5 +1,4 @@
 from core.multi_web_element import MultiWebElement
-from core.web_element import WebElement
 from core.page_actions import PageActions
 
 

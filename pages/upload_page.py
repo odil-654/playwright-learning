@@ -9,11 +9,6 @@ class UploadPage(PageActions):
             self.page.locator("#file-upload"),
             "Upload page -> file choosing button",
         )
-
-        self.upload_button = WebElement(
-            self.page.locator("class='button'"),
-            "Upload page -> upload button",
-        )
         self.success_text = WebElement(
             self.page.locator("h3"),
             "Upload page -> success text"

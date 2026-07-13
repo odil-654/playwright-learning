@@ -2,9 +2,10 @@ from core.multi_web_element import MultiWebElement
 from core.page_actions import PageActions
 
 
-class DownloadPage(PageActions):
+class DownloadPage:
     def __init__(self, page):
-        super().__init__(page)
+        self.actions = PageActions(page)
+        self.page = page
         self.item_identity = MultiWebElement(
             self.page.locator("div.example a"),
             "Upload page -> universal file locator",

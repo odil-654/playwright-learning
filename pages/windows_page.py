@@ -2,9 +2,10 @@ from core.page_actions import PageActions
 from core.web_element import WebElement
 
 
-class WindowsPage(PageActions):
+class WindowsPage:
     def __init__(self, page):
-        super().__init__(page)
+        self.actions = PageActions(page)
+        self.page = page
         self.button_for_click = WebElement(
             self.page.locator("a[href='/windows/new']"),
             "Windows page -> Click button"

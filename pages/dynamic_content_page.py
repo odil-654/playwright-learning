@@ -2,9 +2,10 @@ from core.page_actions import PageActions
 from core.multi_web_element import MultiWebElement
 
 
-class DynamicContentPage(PageActions):
+class DynamicContentPage:
     def __init__(self, page):
-        super().__init__(page)
+        self.actions = PageActions(page)
+        self.page = page
         self.data_for_src = MultiWebElement(
             self.page.locator("div.large-2 img"),
             "Dynamic content -> Icon"

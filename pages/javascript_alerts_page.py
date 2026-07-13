@@ -2,9 +2,10 @@ from core.page_actions import PageActions
 from core.web_element import WebElement
 
 
-class JavascriptAlertsPage(PageActions):
+class JavascriptAlertsPage:
     def __init__(self, page):
-        super().__init__(page)
+        self.actions = PageActions(page)
+        self.page = page
         self.button_js_alert = WebElement(
             self.page.locator("button[onclick='jsAlert()']"),
             "Alerts -> Click for JS Alert",
@@ -26,13 +27,13 @@ class JavascriptAlertsPage(PageActions):
         return self.result.get_text_content()
 
     def click_js_alert(self):
-        return self.run_and_accept_alert(self.button_js_alert.click)
+        return self.actions.run_and_accept_alert(self.button_js_alert.click)
 
     def click_js_confirm(self):
-        return self.run_and_accept_alert(self.button_js_confirm.click)
+        return self.actions.run_and_accept_alert(self.button_js_confirm.click)
 
     def click_js_prompt(self, text):
-        return self.run_and_accept_alert_prompt(self.button_js_prompt.click, text)
+        return self.actions.run_and_accept_alert_prompt(self.button_js_prompt.click, text)
 
     def click_js_cancel(self):
-        return self.run_and_dismiss_alert(self.button_js_confirm.click)
+        return self.actions.run_and_dismiss_alert(self.button_js_confirm.click)

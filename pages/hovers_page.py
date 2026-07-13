@@ -2,9 +2,10 @@ from core.page_actions import PageActions
 from core.web_element import WebElement
 from core.multi_web_element import MultiWebElement
 
-class HoversPage(PageActions):
+class HoversPage:
     def __init__(self, page):
-        super().__init__(page)
+        self.actions = PageActions(page)
+        self.page = page
         self.multi_item = MultiWebElement(
             self.page.locator("img[alt='User Avatar']"),
             "Hovers -> Multi item",

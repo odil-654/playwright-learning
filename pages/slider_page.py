@@ -2,9 +2,10 @@ from core.page_actions import PageActions
 from core.web_element import WebElement
 
 
-class SliderPage(PageActions):
+class SliderPage:
     def __init__(self, page):
-        super().__init__(page)
+        self.actions = PageActions(page)
+        self.page = page
         self.slider = WebElement(
             self.page.locator("input[type='range']"),
             "Slider -> slider locator",

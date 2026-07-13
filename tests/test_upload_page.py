@@ -1,5 +1,8 @@
+from core.base_url import Urls
+
+
 def test_upload_file_page(upload_page):
-    upload_page.goto("https://the-internet.herokuapp.com/upload")
+    upload_page.actions.goto(Urls.UPLOAD_IMAGE)
     upload_page.upload_file("./tests/test-file.txt")
     assert upload_page.success_text.get_text_content() == "File Uploaded!"
 

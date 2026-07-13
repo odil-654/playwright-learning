@@ -2,9 +2,10 @@ from core.page_actions import PageActions
 from core.web_element import WebElement
 
 
-class BasicAuthPage(PageActions):
+class BasicAuthPage:
     def __init__(self, page):
-        super().__init__(page)
+        self.actions = PageActions(page)
+        self.page = page
         self.success_message = WebElement(
         self.page.locator("div.example p"),
         "Basic Auth -> Success message",

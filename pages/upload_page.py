@@ -2,9 +2,10 @@ from core.page_actions import PageActions
 from core.web_element import WebElement
 
 
-class UploadPage(PageActions):
+class UploadPage:
     def __init__(self, page):
-        super().__init__(page)
+        self.actions = PageActions(page)
+        self.page = page
         self.choose_file_button = WebElement(
             self.page.locator("#file-upload"),
             "Upload page -> file choosing button",

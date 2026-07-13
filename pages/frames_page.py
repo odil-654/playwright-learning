@@ -1,9 +1,10 @@
 from core.page_actions import PageActions
 
 
-class FramesPage(PageActions):
+class FramesPage:
     def __init__(self, page):
-        super().__init__(page)
+        self.actions = PageActions(page)
+        self.page = page
         self.upper_left_text = page.frame_locator("[name='frame-top']").frame_locator("[name='frame-left']").locator("body")
         self.upper_middle_text = page.frame_locator("[name='frame-top']").frame_locator("[name='frame-middle']").locator(
             "body")

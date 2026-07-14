@@ -5,5 +5,6 @@ def test_check_all_hovers(hovers_page):
     hovers_page.actions.goto(Urls.HOVERS)
     texts = hovers_page.hover_and_get_text()
     for i, text in enumerate(texts):
-        assert f"name: user{i+1}" in text
-
+        assert f"name: user{i + 1}" in text, (
+            f"Expected: 'name: user{i + 1}', Actual: '{text}'"
+        )

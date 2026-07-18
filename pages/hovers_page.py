@@ -19,10 +19,9 @@ class HoversPage:
         return self.multi_item.all()
 
     def hover_and_get_text(self):
-        list_1 = self.get_all_items()
         texts = []
-        for x in range(0, len(list_1)):
-            list_1[x].hover()
+        for item in self.multi_item:
+            item.hover()
             text = self.hover_text.get_inner_text()
             texts.append(text)
         return texts

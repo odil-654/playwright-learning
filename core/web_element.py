@@ -63,3 +63,7 @@ class WebElement:
     def scroll_into_view_if_needed(self):
         logger.info("Scroll to element: %s", self.description)
         self.locator.scroll_into_view_if_needed()
+
+    def press_home(self):
+        logger.info("Press Home on element: %s", self.description)
+        self.locator.press("Home")

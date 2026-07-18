@@ -26,3 +26,15 @@ class SliderPage:
 
     def get_slider_value(self):
         return self.slider_value.get_inner_text()
+
+    def get_min(self):
+        return  float(self.slider.get_attribute("min"))
+
+    def get_max(self):
+        return float(self.slider.get_attribute("max"))
+
+    def get_step(self):
+        return float(self.slider.get_attribute("step"))
+
+    def press_slider_to_home(self):
+        return self.slider.press_home()

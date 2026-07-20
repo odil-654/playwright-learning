@@ -2,6 +2,7 @@ from core.page_actions import PageActions
 from core.web_element import WebElement
 from core.multi_web_element import MultiWebElement
 
+
 class HoversPage:
     def __init__(self, page):
         self.actions = PageActions(page)
@@ -25,6 +26,3 @@ class HoversPage:
             text = self.hover_text.get_inner_text()
             texts.append(text)
         return texts
-
-
-

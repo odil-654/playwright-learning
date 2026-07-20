@@ -11,5 +11,5 @@ def test_number_of_scrolls(scroll_page):
             break
         if attempts >= max_attempts:
             raise Exception("Too many attempts")
-        items[-1].scroll_into_view_if_needed()
+        scroll_page.get_scroll_a_bit()
         attempts += 1

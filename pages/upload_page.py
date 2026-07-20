@@ -16,4 +16,7 @@ class UploadPage:
         )
 
     def upload_file(self, path):
-        return self.choose_file_button.set_input_files(path)
+        self.choose_file_button.set_input_files(path)
+
+    def get_success_text(self):
+        return self.success_text.get_text_content()

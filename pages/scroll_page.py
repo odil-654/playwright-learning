@@ -13,3 +13,7 @@ class ScrollPage:
     def get_number_of_scrolls(self):
         list_1 = self.scroll_number_check.all()
         return list_1
+
+    def get_scroll_a_bit(self):
+        items = self.get_number_of_scrolls()
+        items[-1].scroll_into_view_if_needed()

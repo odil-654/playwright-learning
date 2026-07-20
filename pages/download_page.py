@@ -11,10 +11,6 @@ class DownloadPage:
             "Upload page -> universal file locator",
         )
 
-    def get_all_id(self):
-        list_1 = self.item_identity.all()
-        return list_1
-
     def get_file_name(self, index):
         return self.item_identity.nth(index).get_inner_text()
 

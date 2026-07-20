@@ -10,6 +10,7 @@ def test_number_of_scrolls(scroll_page):
         if len(items) >= 10:
             break
         if attempts >= max_attempts:
-            raise Exception("Too many attempts")
+            raise TimeoutError("Too many attempts")
         scroll_page.get_scroll_a_bit()
+        scroll_page.page.wait_for_timeout(500)
         attempts += 1

@@ -8,6 +8,3 @@ def test_upload_file_page(upload_page):
     assert actual == "File Uploaded!", (
         f"Expected: 'File uploaded!', Actual: '{actual}'"
     )
-
-    #этот тест фейлится, хз почему, я перепроверил, в локаторе текст правильный и в задании,
-    #но почему-то он всё ещё падает

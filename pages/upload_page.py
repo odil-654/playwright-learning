@@ -14,9 +14,14 @@ class UploadPage:
             self.page.locator("h3"),
             "Upload page -> success text"
         )
+        self.submit_button = WebElement(
+            self.page.locator("#file-submit"),
+            "Upload page -> Submit button"
+        )
 
     def upload_file(self, path):
         self.choose_file_button.set_input_files(path)
+        self.submit_button.click()
 
     def get_success_text(self):
         return self.success_text.get_text_content()

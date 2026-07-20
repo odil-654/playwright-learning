@@ -20,7 +20,3 @@ class WindowsPage:
             self.button_for_click.click()
         new_page = page_info.value
         return new_page
-
-    def click_and_get_text(self):
-        new_page = self.click_and_get_new_page()
-        return new_page.locator("h3").inner_text()

@@ -16,9 +16,6 @@ class HoversPage:
             "Hovers -> text after hover",
         )
 
-    def get_all_items(self):
-        return self.multi_item.all()
-
     def hover_and_get_text(self):
         texts = []
         for item in self.multi_item:

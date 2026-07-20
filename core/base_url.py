@@ -16,5 +16,5 @@ class Urls:
     DOWNLOAD = f"{BASE_URL}/download"
 
     @staticmethod
-    def basic_auth_url(login: str, password: str) -> str:
+    def get_basic_auth_url(login: str, password: str) -> str:
         return f"https://{login}:{password}@{DOMAIN}/basic_auth"

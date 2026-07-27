@@ -32,14 +32,6 @@ class WebElement:
         logger.info("Get text content from element: %s", self.description)
         return self.locator.text_content()
 
-#    def press_right(self):
-#        logger.info("Press ArrowRight on element: %s", self.description)
-#        self.locator.press("ArrowRight")
-
-#    def press_left(self):
-#        logger.info("Press ArrowLeft on element: %s", self.description)
-#        self.locator.press("ArrowLeft")
-
     def hover(self):
         logger.info("Hover over element: %s", self.description)
         self.locator.hover()
